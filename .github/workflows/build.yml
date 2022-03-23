@@ -1,4 +1,4 @@
-name: "Deploy Class Commands"
+name: "Deploy Class WpfTestApp"
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - "class-commands/v*"
 
 env:
-  PROJECT_PATH: ClassCommands/ClassCommands.csproj
+  PROJECT_PATH: WpfTestApp/WpfTestApp.csproj
 
 jobs:
   deploy:
@@ -35,5 +35,5 @@ jobs:
       - uses: csexton/release-asset-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          pattern: ClassCommands/bin/Release/netcoreapp3.1/win-x64/publish/*.exe
+          pattern: WpfTestApp/bin/Release/netcoreapp3.1/win-x64/publish/*.exe
           release-url: ${{ steps.create_release.outputs.upload_url }}
